@@ -1,0 +1,19 @@
+.section {
+  padding: 24px 24px 56px;
+}
+
+.wrap {
+  position: relative;
+  max-width: 760px;
+  height: 60vh;
+  min-height: 340px;
+  max-height: 560px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(var(--shadow-tint), 0.16);
+}
+
+.img {
+  object-fit: cover;
+}

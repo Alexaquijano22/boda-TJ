@@ -1,0 +1,40 @@
+.footer {
+  position: relative;
+  text-align: center;
+  padding: 24px 24px 56px;
+  overflow: hidden;
+}
+
+.monogram {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 20px;
+  border: 1px solid var(--tertiary-container);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monogram span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--tertiary);
+}
+
+.closing {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 44px;
+  color: var(--tertiary);
+  margin: 0 0 24px;
+}
+
+.names {
+  color: var(--outline);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
