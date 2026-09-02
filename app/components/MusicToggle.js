@@ -78,6 +78,16 @@ export default function MusicToggle() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const onSpotifyPlay = () => {
+      if (playerRef.current) {
+        playerRef.current.pauseVideo();
+      }
+    };
+    window.addEventListener("spotify-play", onSpotifyPlay);
+    return () => window.removeEventListener("spotify-play", onSpotifyPlay);
+  }, []);
+
   const handleClick = () => {
     if (!playerRef.current) {
       if (!apiReadyRef.current) return;

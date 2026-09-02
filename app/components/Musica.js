@@ -1,10 +1,50 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import styles from "./Musica.module.css";
 
 const PLAYLIST_ID = "5wYojnfvtWplugmDlmq0uD";
+const PLAYLIST_URI = `spotify:playlist:${PLAYLIST_ID}`;
 const PLAYLIST_URL = `https://open.spotify.com/playlist/${PLAYLIST_ID}`;
-const EMBED_URL = `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}?utm_source=generator`;
 
 export default function Musica() {
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    function setup(IFrameAPI) {
+      IFrameAPI.createController(
+        targetRef.current,
+        { width: "100%", height: "352", uri: PLAYLIST_URI },
+        (EmbedController) => {
+          EmbedController.addListener("playback_update", (e) => {
+            if (!e.data.isPaused) {
+              window.dispatchEvent(new CustomEvent("spotify-play"));
+            }
+          });
+        }
+      );
+    }
+
+    if (window.Spotify && window.Spotify.Embed) {
+      setup(window.Spotify.Embed);
+      return;
+    }
+
+    const prevReady = window.onSpotifyIframeApiReady;
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+      prevReady?.(IFrameAPI);
+      setup(IFrameAPI);
+    };
+
+    if (!document.getElementById("spotify-iframe-api")) {
+      const script = document.createElement("script");
+      script.id = "spotify-iframe-api";
+      script.src = "https://open.spotify.com/embed/iframe-api/v1";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <section className={styles.musica}>
       <div className="page">
@@ -15,16 +55,7 @@ export default function Musica() {
           que no puede faltar en nuestra playlist de Spotify.
         </p>
         <div className={styles.card}>
-          <iframe
-            className={styles.player}
-            src={EMBED_URL}
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Playlist de Spotify"
-          />
+          <div className={styles.player} ref={targetRef} />
           <a
             className={styles.addBtn}
             href={PLAYLIST_URL}
