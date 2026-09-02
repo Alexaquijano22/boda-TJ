@@ -60,19 +60,19 @@ export default function MusicToggle() {
   }, []);
 
   useEffect(() => {
-    const target = document.getElementById("historia");
+    const target = document.getElementById("hero");
     if (!target) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !playerRef.current && apiReadyRef.current) {
+          if (!entry.isIntersecting && !playerRef.current && apiReadyRef.current) {
             createAndPlay();
             observer.unobserve(target);
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0 }
     );
     observer.observe(target);
     return () => observer.disconnect();

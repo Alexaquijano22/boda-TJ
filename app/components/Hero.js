@@ -5,7 +5,7 @@ import heroImage from "@/public/images/hero.jpg";
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <Image
         src={heroImage}
         alt=""
