@@ -11,6 +11,7 @@ export default function MusicToggle() {
   const apiReadyRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showHint, setShowHint] = useState(true);
 
   const createAndPlay = () => {
     if (playerRef.current) return;
@@ -60,25 +61,6 @@ export default function MusicToggle() {
   }, []);
 
   useEffect(() => {
-    const target = document.getElementById("hero");
-    if (!target) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting && !playerRef.current && apiReadyRef.current) {
-            createAndPlay();
-            observer.unobserve(target);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     const onSpotifyPlay = () => {
       if (playerRef.current) {
         playerRef.current.pauseVideo();
@@ -89,6 +71,7 @@ export default function MusicToggle() {
   }, []);
 
   const handleClick = () => {
+    setShowHint(false);
     if (!playerRef.current) {
       if (!apiReadyRef.current) return;
       createAndPlay();
@@ -106,6 +89,19 @@ export default function MusicToggle() {
       <div className={styles.hiddenPlayer}>
         <div ref={targetRef} />
       </div>
+      {showHint && !isPlaying && (
+        <div className={styles.hint}>
+          <span>🎵 Toca aquí para poner nuestra música</span>
+          <button
+            type="button"
+            className={styles.hintClose}
+            onClick={() => setShowHint(false)}
+            aria-label="Cerrar aviso"
+          >
+            ×
+          </button>
+        </div>
+      )}
       <button
         type="button"
         className={`${styles.button} ${isPlaying ? styles.playing : ""}`}

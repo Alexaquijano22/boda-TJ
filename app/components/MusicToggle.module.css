@@ -43,3 +43,70 @@
     box-shadow: 0 8px 20px rgba(var(--shadow-tint), 0.35), 0 0 0 8px rgba(var(--shadow-tint), 0.12);
   }
 }
+
+.hint {
+  position: fixed;
+  bottom: 88px;
+  right: 24px;
+  z-index: 50;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--tertiary-container);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(var(--shadow-tint), 0.2);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--on-surface);
+  animation: hintIn 0.4s ease-out 1.2s both, hintBounce 1.8s ease-in-out 2s infinite;
+}
+
+.hint::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 22px;
+  width: 12px;
+  height: 12px;
+  background: var(--surface-container-lowest);
+  border-right: 1px solid var(--tertiary-container);
+  border-bottom: 1px solid var(--tertiary-container);
+  transform: rotate(45deg);
+}
+
+.hintClose {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: none;
+  color: var(--outline);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+@keyframes hintIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hintBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
