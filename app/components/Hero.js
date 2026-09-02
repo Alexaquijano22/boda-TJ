@@ -28,8 +28,6 @@ export default function Hero() {
           <span className="dot" />
           <span className="line" />
         </div>
-        <p className={styles.fecha}>20 de Noviembre, 2026</p>
-        <p className={styles.details}>4:00 pm · Peñalolén, Santiago</p>
         <Countdown />
         <a className={styles.cta} href="#detalles">
           Ver detalles

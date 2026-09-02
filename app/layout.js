@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Alex_Brush, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
+import MusicToggle from "./components/MusicToggle";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -35,7 +36,10 @@ export default function RootLayout({ children }) {
       lang="es"
       className={`${cormorant.variable} ${alexBrush.variable} ${beVietnamPro.variable}`}
     >
-      <body style={{ fontFamily: "var(--font-body)" }}>{children}</body>
+      <body style={{ fontFamily: "var(--font-body)" }}>
+        {children}
+        <MusicToggle />
+      </body>
     </html>
   );
 }

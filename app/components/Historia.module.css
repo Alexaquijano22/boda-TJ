@@ -4,11 +4,31 @@
   overflow: hidden;
 }
 
+.quote {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 8px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+
+.historia h2 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 56px;
+  margin: 8px 0 28px;
+  text-align: center;
+  color: var(--tertiary);
+}
+
 .portrait {
   position: relative;
   width: 128px;
   height: 128px;
-  margin: 0 auto 28px;
+  margin: 0 auto 24px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--surface-container-lowest);
@@ -19,22 +39,20 @@
   object-fit: cover;
 }
 
-.historia h2 {
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: 56px;
+.fecha {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--on-surface);
   margin: 0 0 4px;
-  text-align: center;
-  color: var(--tertiary);
 }
 
-.cuerpo {
+.details {
   position: relative;
-  max-width: 520px;
-  margin: 20px auto 0;
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 15px;
   color: var(--on-surface-variant);
+  margin: 0;
 }
 
 .cornerTop {
