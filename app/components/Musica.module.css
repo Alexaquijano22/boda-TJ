@@ -1,0 +1,49 @@
+.musica {
+  background: var(--surface-container-low);
+  text-align: center;
+}
+
+.musica h2 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 48px;
+  margin: 0 0 4px;
+  color: var(--tertiary);
+}
+
+.lead {
+  max-width: 480px;
+  margin: 16px auto 32px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+}
+
+.card {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--tertiary-container);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(var(--shadow-tint), 0.08);
+}
+
+.player {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.addBtn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-primary);
+  background: var(--primary);
+  border-radius: 999px;
+  text-decoration: none;
+}
