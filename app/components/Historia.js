@@ -3,7 +3,7 @@ import styles from "./Historia.module.css";
 
 export default function Historia() {
   return (
-    <section className={`${styles.historia} page`}>
+    <section id="historia" className={`${styles.historia} page`}>
       <Image
         src="/images/pampas-corner.png"
         alt=""

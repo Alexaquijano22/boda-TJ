@@ -12,28 +12,8 @@ export default function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (window.YT && window.YT.Player) {
-      apiReadyRef.current = true;
-      return;
-    }
-
-    const prevReady = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      prevReady?.();
-      apiReadyRef.current = true;
-    };
-
-    if (!document.getElementById("youtube-iframe-api")) {
-      const script = document.createElement("script");
-      script.id = "youtube-iframe-api";
-      script.src = "https://www.youtube.com/iframe_api";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   const createAndPlay = () => {
+    if (playerRef.current) return;
     setLoading(true);
     playerRef.current = new window.YT.Player(targetRef.current, {
       height: "1",
@@ -57,6 +37,46 @@ export default function MusicToggle() {
       },
     });
   };
+
+  useEffect(() => {
+    if (window.YT && window.YT.Player) {
+      apiReadyRef.current = true;
+      return;
+    }
+
+    const prevReady = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      prevReady?.();
+      apiReadyRef.current = true;
+    };
+
+    if (!document.getElementById("youtube-iframe-api")) {
+      const script = document.createElement("script");
+      script.id = "youtube-iframe-api";
+      script.src = "https://www.youtube.com/iframe_api";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  useEffect(() => {
+    const target = document.getElementById("historia");
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !playerRef.current && apiReadyRef.current) {
+            createAndPlay();
+            observer.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   const handleClick = () => {
     if (!playerRef.current) {
