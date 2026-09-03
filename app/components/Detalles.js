@@ -8,8 +8,8 @@ export default function Detalles() {
   return (
     <section className={styles.detalles} id="detalles">
       <div className="page">
-        <p className="eyebrow">Detalles</p>
-        <h2 style={{ textAlign: "center" }}>Los esperamos en la celebración</h2>
+        <p className="eyebrow">Recepción</p>
+        <h2 style={{ textAlign: "center" }}>Te esperamos</h2>
         <div className={styles.moments}>
           <div className={styles.moment}>
             <Image
@@ -30,10 +30,8 @@ export default function Detalles() {
               <path d="M12 21V9" />
             </svg>
             <p className={styles.hora}>4:00 pm</p>
-            <h3>Recepción</h3>
+            <h3>Nuestro hogar</h3>
             <p>
-              Nuestro hogar
-              <br />
               Camino Las Pircas 4298, casa 13, Peñalolén
               <br />
               Dress code: Semiformal

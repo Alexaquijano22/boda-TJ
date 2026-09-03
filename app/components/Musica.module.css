@@ -3,14 +3,6 @@
   text-align: center;
 }
 
-.musica h2 {
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: 48px;
-  margin: 0 0 4px;
-  color: var(--tertiary);
-}
-
 .lead {
   max-width: 480px;
   margin: 16px auto 32px;

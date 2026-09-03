@@ -31,6 +31,10 @@ export default function Historia() {
           sizes="128px"
         />
       </div>
+      <p className={styles.invite}>
+        Porque hoy queremos celebrarlo junto a ti, estás invitado a
+        acompañarnos a celebrar nuestra unión
+      </p>
       <p className={styles.fecha}>20 de Noviembre, 2026</p>
       <p className={styles.details}>4:00 pm · Peñalolén, Santiago</p>
     </section>

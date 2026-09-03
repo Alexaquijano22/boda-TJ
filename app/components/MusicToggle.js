@@ -91,7 +91,7 @@ export default function MusicToggle() {
       </div>
       {showHint && !isPlaying && (
         <div className={styles.hint}>
-          <span>🎵 Toca aquí para poner nuestra música</span>
+          <span>🎵 Toca aquí para reproducir nuestra canción</span>
           <button
             type="button"
             className={styles.hintClose}

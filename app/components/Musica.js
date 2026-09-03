@@ -49,10 +49,8 @@ export default function Musica() {
     <section className={styles.musica}>
       <div className="page">
         <p className="eyebrow">Música</p>
-        <h2>Arma nuestro playlist</h2>
         <p className={styles.lead}>
-          Ayúdanos a armar la música de la celebración: agrega esa canción
-          que no puede faltar en nuestra playlist de Spotify.
+          Agrega esa canción que no puede faltar en nuestra celebración.
         </p>
         <div className={styles.card}>
           <div className={styles.player} ref={targetRef} />

@@ -39,11 +39,20 @@
   object-fit: cover;
 }
 
+.invite {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto 28px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+}
+
 .fecha {
   position: relative;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 22px;
+  font-size: 32px;
   color: var(--on-surface);
   margin: 0 0 4px;
 }
