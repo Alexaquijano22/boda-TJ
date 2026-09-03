@@ -27,9 +27,10 @@ export default function MusicToggle() {
         modestbranding: 1,
       },
       events: {
-        onReady: () => setLoading(false),
         onStateChange: (e) => {
-          setIsPlaying(e.data === window.YT.PlayerState.PLAYING);
+          const playing = e.data === window.YT.PlayerState.PLAYING;
+          setIsPlaying(playing);
+          if (playing) setLoading(false);
         },
         onError: (e) => {
           console.error("YouTube player error code:", e.data);
@@ -107,10 +108,23 @@ export default function MusicToggle() {
         className={`${styles.button} ${isPlaying ? styles.playing : ""}`}
         onClick={handleClick}
         disabled={loading}
-        aria-label={isPlaying ? "Pausar música" : "Reproducir música"}
-        title={isPlaying ? "Pausar música" : "Reproducir música"}
+        aria-label={loading ? "Cargando canción" : isPlaying ? "Pausar música" : "Reproducir música"}
+        title={loading ? "Cargando canción…" : isPlaying ? "Pausar música" : "Reproducir música"}
       >
-        {isPlaying ? (
+        {loading ? (
+          <svg className={styles.spinner} viewBox="0 0 24 24" fill="none">
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray="42"
+              strokeDashoffset="14"
+            />
+          </svg>
+        ) : isPlaying ? (
           <svg viewBox="0 0 24 24" fill="currentColor">
             <rect x="6" y="5" width="4" height="14" rx="1" />
             <rect x="14" y="5" width="4" height="14" rx="1" />

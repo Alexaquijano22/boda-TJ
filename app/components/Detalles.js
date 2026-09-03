@@ -9,7 +9,7 @@ export default function Detalles() {
     <section className={styles.detalles} id="detalles">
       <div className="page">
         <p className="eyebrow">Recepción</p>
-        <h2 style={{ textAlign: "center" }}>Te esperamos</h2>
+        <p className={styles.giftText}>Tu presencia es el mejor regalo</p>
         <div className={styles.moments}>
           <div className={styles.moment}>
             <Image
@@ -46,6 +46,14 @@ export default function Detalles() {
             </a>
           </div>
         </div>
+        <div className={`divider ${styles.rsvpDivider}`}>
+          <span className="line" />
+          <span className="dot" />
+          <span className="line" />
+        </div>
+        <p className={styles.rsvpText}>
+          Confírmanos tu asistencia hasta el <strong>20 de octubre</strong>
+        </p>
       </div>
     </section>
   );

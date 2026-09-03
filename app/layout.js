@@ -36,6 +36,11 @@ export default function RootLayout({ children }) {
       lang="es"
       className={`${cormorant.variable} ${alexBrush.variable} ${beVietnamPro.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+        <link rel="preconnect" href="https://www.google.com" />
+      </head>
       <body style={{ fontFamily: "var(--font-body)" }}>
         {children}
         <MusicToggle />
