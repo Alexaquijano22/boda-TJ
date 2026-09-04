@@ -48,7 +48,7 @@ export default function Musica() {
   return (
     <section className={styles.musica}>
       <div className="page">
-        <p className="eyebrow">Música</p>
+        <p className={`eyebrow ${styles.title}`}>Música</p>
         <p className={styles.lead}>
           Agrega esa canción que no puede faltar en nuestra celebración.
         </p>

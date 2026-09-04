@@ -8,7 +8,7 @@ export default function Detalles() {
   return (
     <section className={styles.detalles} id="detalles">
       <div className="page">
-        <p className="eyebrow">Recepción</p>
+        <p className={`eyebrow ${styles.title}`}>Recepción</p>
         <p className={styles.giftText}>Tu presencia es el mejor regalo</p>
         <div className={styles.moments}>
           <div className={styles.moment}>
@@ -52,7 +52,7 @@ export default function Detalles() {
           <span className="line" />
         </div>
         <p className={styles.rsvpText}>
-          Confírmanos tu asistencia hasta el <strong>20 de octubre</strong>
+          Confírmanos tu asistencia hasta el <strong>10 de octubre</strong>
         </p>
       </div>
     </section>

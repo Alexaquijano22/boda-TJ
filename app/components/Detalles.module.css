@@ -5,6 +5,15 @@
   padding-bottom: 40px;
 }
 
+.title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 38px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--tertiary);
+}
+
 .moments {
   max-width: 420px;
   margin: 32px auto 0;
@@ -32,20 +41,20 @@
   color: var(--primary);
 }
 
-.hora {
-  font-size: 12px;
+.moment .hora {
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--outline);
-  margin: 0 0 10px;
+  color: var(--on-surface-variant);
+  margin: 0 0 14px;
 }
 
 .moment h3 {
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: 44px;
-  margin: 0 0 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 27px;
+  margin: 0 0 12px;
   color: var(--tertiary);
 }
 

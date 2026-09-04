@@ -5,6 +5,15 @@
   padding-bottom: 32px;
 }
 
+.title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 38px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--tertiary);
+}
+
 .lead {
   max-width: 480px;
   margin: 16px auto 32px;

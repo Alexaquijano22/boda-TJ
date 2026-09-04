@@ -18,7 +18,7 @@
 .historia h2 {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: 56px;
+  font-size: 68px;
   margin: 8px 0 28px;
   text-align: center;
   color: var(--tertiary);
@@ -55,14 +55,14 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 32px;
-  color: var(--on-surface);
+  color: var(--tertiary);
   margin: 0 0 4px;
 }
 
 .details {
   position: relative;
   font-size: 15px;
-  color: var(--on-surface-variant);
+  color: var(--tertiary);
   margin: 0;
 }
 

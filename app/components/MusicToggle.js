@@ -9,9 +9,17 @@ export default function MusicToggle() {
   const targetRef = useRef(null);
   const playerRef = useRef(null);
   const apiReadyRef = useRef(false);
+  const loadingTimeoutRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showHint, setShowHint] = useState(true);
+
+  const clearLoadingTimeout = () => {
+    if (loadingTimeoutRef.current) {
+      clearTimeout(loadingTimeoutRef.current);
+      loadingTimeoutRef.current = null;
+    }
+  };
 
   const createAndPlay = () => {
     if (playerRef.current) return;
@@ -27,13 +35,26 @@ export default function MusicToggle() {
         modestbranding: 1,
       },
       events: {
+        onReady: (e) => {
+          // En algunos navegadores (iOS) el autoplay del playerVars no
+          // arranca solo; forzamos playVideo() explícito como respaldo.
+          e.target.playVideo();
+          // Si no llega a reproducir en unos segundos, liberamos el botón
+          // para que se pueda volver a tocar en vez de quedar "cargando".
+          clearLoadingTimeout();
+          loadingTimeoutRef.current = setTimeout(() => setLoading(false), 4000);
+        },
         onStateChange: (e) => {
           const playing = e.data === window.YT.PlayerState.PLAYING;
           setIsPlaying(playing);
-          if (playing) setLoading(false);
+          if (playing) {
+            clearLoadingTimeout();
+            setLoading(false);
+          }
         },
         onError: (e) => {
           console.error("YouTube player error code:", e.data);
+          clearLoadingTimeout();
           setLoading(false);
         },
       },
@@ -59,6 +80,8 @@ export default function MusicToggle() {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    return () => clearLoadingTimeout();
   }, []);
 
   useEffect(() => {
