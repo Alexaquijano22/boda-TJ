@@ -8,7 +8,7 @@ const PLAYLIST_URI = `spotify:playlist:${PLAYLIST_ID}`;
 // Link de invitación colaborativa (con el token "si") en vez del link pelado:
 // es el que Spotify usa para reconocer a quien lo abre como colaborador.
 const PLAYLIST_URL =
-  "https://open.spotify.com/playlist/5wYojnfvtWplugmDlmq0uD?si=j0WjaswiTAqaoHNoN5YGuA&utm_source=whatsapp&pt=33d0023bb8c4f7e6a6c777ed67937d4b&pi=v_suGWlMTFSA9";
+  "https://open.spotify.com/playlist/5wYojnfvtWplugmDlmq0uD?si=SpeL8QxtQ8WX3Pul7xNbJw&utm_source=whatsapp&pi=Ar2BGiAhRKKxD&pt=d5f9ad92680c80eecac6af14b1f95ecc";
 
 export default function Musica() {
   const targetRef = useRef(null);
